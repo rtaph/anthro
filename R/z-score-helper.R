@@ -63,7 +63,7 @@ apply_zscore_and_growthstandards <- function(zscore_fun, growthstandards,
   l <- merged_df[["l"]]
   s <- merged_df[["s"]]
   zscore <- zscore_fun(y, m, l, s)
-  round(zscore, digits = 2L)
+  round(zscore, digits = getOption("anthro.digits", 2L))
 }
 
 flag_zscore <- function(flag_threshold, score_name, zscore, valid_zscore) {

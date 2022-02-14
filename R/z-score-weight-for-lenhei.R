@@ -107,7 +107,7 @@ anthro_zscore_weight_for_lenhei <-
     s <- as.numeric(s)
 
     zscore <- compute_zscore_adjusted(y, m, l, s)
-    zscore <- round(zscore, digits = 2L)
+    zscore <- round(zscore, digits = getOption("anthro.digits", 2L))
 
     valid_zscore <- !is.na(lenhei) &
       ifelse(join_on_l,

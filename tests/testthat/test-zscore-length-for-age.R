@@ -12,7 +12,8 @@ describe("anthro_zscore_length_for_age", {
   })
   it("computes the z-score for length for age", {
     observed <- anthro_zscore_length_for_age(50, 44, to_months(44), 1)
-    expected <- round(((50 / 56.4833)^1 - 1) / (0.03492 * 1), digits = 2L)
+    expected <- round(((50 / 56.4833)^1 - 1) / (0.03492 * 1),
+                      digits = getOption("anthro.digits", 2L))
     expect_true(is.data.frame(observed))
     expect_equal(observed$zlen, expected, tolerance = 1e-8)
     expect_equal(observed$flen, 0L)
