@@ -21,6 +21,7 @@ anthro_zscore_arm_circumference_for_age <-
       sex = sex,
       growthstandards = growthstandards,
       flag_threshold = flag_threshold,
-      allowed_age_range = c(91, 1856)
+      allowed_age_range = c(91, 1856),
+      zscore_is_valid = !is.na(age_in_months) & age_in_months < 60
     )
   }

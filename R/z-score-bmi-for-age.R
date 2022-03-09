@@ -21,6 +21,6 @@ anthro_zscore_bmi_for_age <-
       sex = sex,
       growthstandards = growthstandards,
       flag_threshold = flag_threshold,
-      allowed_age_range = c(0, 1856), !(oedema %in% "y")
+      allowed_age_range = c(0, 1856)
     )
   }
