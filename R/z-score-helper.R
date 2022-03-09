@@ -144,15 +144,11 @@ anthro_zscore_adjusted <-
       age_in_days, sex, measure
     )
 
-    # we only compute zscores for children age < 60 months
-    # the age in months is unrouned
-    valid_age <- age_in_months < 60
-
     # at last we set certain zscores to NA
     valid_zscore <- !is.na(age_in_days) &
       age_in_days >= allowed_age_range[1L] &
       age_in_days <= allowed_age_range[2L] &
       zscore_is_valid &
-      valid_age
+      !is.na(zscore)
     flag_zscore(flag_threshold, name, zscore, valid_zscore)
   }

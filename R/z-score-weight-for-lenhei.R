@@ -33,10 +33,10 @@ anthro_zscore_weight_for_lenhei <-
     n <- length(lenhei)
 
     # clean weight/lenhei
-    weight[weight < 0.9 | weight > 58.0] <- NA_real_
-    lenhei[lenhei < 38.0 | lenhei > 150.0] <- NA_real_
+    weight[weight > 58.0] <- NA_real_
+    lenhei[lenhei > 150.0] <- NA_real_
 
-    # we also need to interpolate lenhei under certain coniditions
+    # we also need to interpolate lenhei under certain conditions
     low_lenhei <- trunc(lenhei * 10) / 10
     upp_lenhei <- trunc(lenhei * 10 + 1) / 10
     diff_lenhei <- (lenhei - low_lenhei) / 0.1
@@ -120,7 +120,6 @@ anthro_zscore_weight_for_lenhei <-
 
     valid_zscore <- valid_zscore & !(oedema %in% "y")
     valid_zscore <- valid_zscore & (is.na(age_in_days) | (age_in_days <= 1856))
-    valid_zscore <- valid_zscore & age_in_months < 60
 
     flag_zscore(flag_threshold, "wfl", zscore, valid_zscore)
   }
