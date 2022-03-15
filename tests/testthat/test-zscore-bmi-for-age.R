@@ -22,12 +22,6 @@ describe("anthro_zscore_bmi_for_age", {
       to_months(44), "F", "n"
     ), "sex")
   })
-  it("sets result to NA if oedema is y", {
-    expect_true(is.na(anthro_zscore_bmi_for_age(
-      50, 44,
-      to_months(44), 1, "y"
-    )$zbmi))
-  })
   it("has a default flag threshold of -6;5", {
     observed <- anthro_zscore_bmi_for_age(25, 1, to_months(1), 2, "n")
     expect_equal(observed$fbmi, 1L)
